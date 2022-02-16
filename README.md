@@ -1,5 +1,4 @@
-# ZSIC
-Zero Shot Image Classification equivalent for HuggingFace Zero Shot Text Classification
+# Zero Shot Image Classification
 
 
 ## Usage
