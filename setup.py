@@ -1,11 +1,6 @@
 import setuptools
 import os
 
-requirements = []
-    try:
-        with open('requirements.txt') as f:
-            requirements = f.read().splitlines()
-
 
 setuptools.setup(
     name="ZSIC",
@@ -16,7 +11,7 @@ setuptools.setup(
     long_description="Zero Shot Image Classification equivalent for HuggingFace Zero Shot Text Classification - By Prithivi Da",
     url="https://github.com/PrithivirajDamodaran/ZSIC.git",
     packages=setuptools.find_packages(),
-    install_requires=requirements,
+    install_requires=[CLIP @ git+https://github.com/openai/CLIP.git],
     classifiers=[
         "Programming Language :: Python :: 3.7",
         "License :: MIT",
