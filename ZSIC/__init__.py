@@ -1,0 +1,1 @@
+from zsic.classifier import ZeroShotImageClassification
