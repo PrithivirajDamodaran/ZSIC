@@ -1,7 +1,7 @@
 # Zero Shot Image Classification
 
 
-## Usage
+### Usage
 
 ```python
 zsc = ZeroShotImageClassification()
@@ -13,14 +13,14 @@ print(preds)
 
 ```
 
-## You can use CNN or Transformer based pretrained models as vision backbone
+### You can use CNN or Transformer based pretrained models as vision backbone
 ```python
 #Supported models `RN50`, `RN101`, `RN50x4`, `RN50x16`, `RN50x64`, `ViT-B/32`, `ViT-B/16`, `ViT-L/14`
 
 zsc = ZeroShotImageClassification(model="ViT-B/16")
 ```
 
-## You can use string templates to make the labels more intuitive
+### You can use string templates to make the labels more intuitive
 ```python
 zsc = ZeroShotImageClassification(model="ViT-B/16")
 preds = zsc(image="http://images.cocodataset.org/val2017/000000039769.jpg",candidate_labels=["tv", "cats and remotes", "cats on a pink cloth"], hypothesis_template="A image of {}")

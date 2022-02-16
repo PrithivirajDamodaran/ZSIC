@@ -61,7 +61,6 @@ class ZeroShotImageClassification():
 
         """
         Classify the image using the candidate labels given
-
         Args:
             image (`str`):
                 Fully Qualified path of a local image or URL of image
@@ -77,7 +76,6 @@ class ZeroShotImageClassification():
            top_k (`int`, *optional*, defaults to 5):
                 The number of top labels that will be returned by the pipeline. If the provided number is higher than
                 the number of labels available in the model configuration, it will default to the number of labels.
-
         Return:
             A `dict` or a list of `dict`: Each result comes as a dictionary with the following keys:
             - **image** (`str`) -- The image for which this is the output.
