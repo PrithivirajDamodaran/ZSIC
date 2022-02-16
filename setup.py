@@ -1,4 +1,7 @@
 import setuptools
+import os
+
+os.system('pip install git+https://github.com/openai/CLIP.git@main')
 
 setuptools.setup(
     name="ZSIC",
@@ -9,7 +12,13 @@ setuptools.setup(
     long_description="Zero Shot Image Classification equivalent for HuggingFace Zero Shot Text Classification - By Prithivi Da",
     url="https://github.com/PrithivirajDamodaran/ZSIC.git",
     packages=setuptools.find_packages(),
-    install_requires=['ftfy' ,'regex', 'tqdm', 'torch',' torchvision', 'git+https://github.com/openai/CLIP.git']
+    install_requires=[
+        "ftfy",
+        "regex",
+        "tqdm",
+        "torch",
+        "torchvision"
+    ],
     classifiers=[
         "Programming Language :: Python :: 3.7",
         "License :: MIT",
