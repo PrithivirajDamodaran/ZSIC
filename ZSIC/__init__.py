@@ -1,1 +1,1 @@
-from zsic.zsic import ZeroShotImageClassification
+from zsic.ZeroShotImageClassification import ZeroShotImageClassification
