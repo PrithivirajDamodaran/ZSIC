@@ -1,24 +1,106 @@
-# Zero Shot Image Classification
+# Zero Shot Multilingual Image Classification and More
 
 
 ### Usage
 
 ```python
-zsc = ZeroShotImageClassification()
-preds = zsc("http://images.cocodataset.org/val2017/000000039769.jpg", ["tv", "cats and remotes", "cats on a pink cloth"])
+from ZSIC import ZeroShotImageClassification
+
+zsic = ZeroShotImageClassification(lang="es")
+preds = zsic(image="http://images.cocodataset.org/val2017/000000039769.jpg",
+            candidate_labels=["gatita", "perras", "gatas","leonas"],
+            hypothesis_template="una imagen de {}",
+            )
 print(preds)
 
-# prints the following
-# {'image': 'http://images.cocodataset.org/val2017/000000039769.jpg', 'scores': [7.725e-05, 1.0, 4.834e-05], 'labels': ['A photo of tv', 'A photo of cats and remotes', 'A photo of cats on a pink cloth']}
+#Prints the following
 
+{'image': 'http://images.cocodataset.org/val2017/000000039769.jpg', 
+'scores': [0.5385471, 0.0016878153, 0.45578623, 0.003978893], 
+'labels': ['gatita', 'perras', 'gatas', 'leonas']}
 ```
 
 ### You can use CNN or Transformer based pretrained models as vision backbone
 ```python
-#Supported models `RN50`, `RN101`, `RN50x4`, `RN50x16`, `RN50x64`, `ViT-B/32`, `ViT-B/16`, `ViT-L/14`
+#View Supported models
+zsic = ZeroShotImageClassification()
+zsic.available_models()
 
-zsc = ZeroShotImageClassification(model="ViT-B/16")
+#Prints the following
+
+['RN50',
+ 'RN101',
+ 'RN50x4',
+ 'RN50x16',
+ 'RN50x64',
+ 'ViT-B/32',
+ 'ViT-B/16',
+ 'ViT-L/14']
 ```
+
+### You can use it over 50 languages
+```python
+#View Supported models
+zsic = ZeroShotImageClassification()
+zsic.available_languages()
+
+#Prints the following
+
+{'ar',
+ 'bg',
+ 'ca',
+ 'cs',
+ 'da',
+ 'de',
+ 'el',
+ 'en',
+ 'es',
+ 'et',
+ 'fa',
+ 'fi',
+ 'fr',
+ 'fr-ca',
+ 'gl',
+ 'gu',
+ 'he',
+ 'hi',
+ 'hr',
+ 'hu',
+ 'hy',
+ 'id',
+ 'it',
+ 'ja',
+ 'ka',
+ 'ko',
+ 'ku',
+ 'lt',
+ 'lv',
+ 'mk',
+ 'mn',
+ 'mr',
+ 'ms',
+ 'my',
+ 'nb',
+ 'nl',
+ 'pl',
+ 'pt',
+ 'pt-br',
+ 'ro',
+ 'ru',
+ 'sk',
+ 'sl',
+ 'sq',
+ 'sr',
+ 'sv',
+ 'th',
+ 'tr',
+ 'uk',
+ 'ur',
+ 'vi',
+ 'zh-cn',
+ 'zh-tw'}
+ ```
+
 
 ### You can use string templates to make the labels more intuitive
 ```python
