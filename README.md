@@ -1,4 +1,14 @@
-# Zero Shot Image Classification but more
+# ZSIC - Zero Shot Image Classification but more
+
+* Lightweight / faster / $ conscious labelling needs ?
+    * Supports CNN based models as vision backbone
+* Multilingual labelling needs?
+    * Supports Transformers based models as text backbone for multilingual needs
+* Supported Vision backbones
+    *  ```RN50, RN101, RN50x4, RN50x16, RN50x64, ViT-B/32, ViT-B/16, ViT-L/14```
+* Supported Languages
+    * ```ar, bg, ca, cs, da, de, el, es, et, fa, fi, fr, fr-ca, gl, gu, he, hi, hr, hu, hy, id, it, ja, ka, ko, ku, lt, lv, mk, mn, mr, ms, my, nb, nl, pl, pt, pt, pt-br, ro, ru, sk, sl, sq, sr, sv, th, tr, uk, ur, vi, zh-cn, zh-tw.```
+
 
 ### Installation
 ```python
@@ -33,9 +43,10 @@ print(preds)
 from ZSIC import ZeroShotImageClassification
 
 zsic = ZeroShotImageClassification(lang="es")
+
 preds = zsic(image="http://images.cocodataset.org/val2017/000000039769.jpg",
             candidate_labels=["gatita", "perras", "gatas","leonas"],
-            hypothesis_template="una imagen de {}",
+            hypothesis_template="una imagen de {}",  # Using a hypothesis_template makes the scores more robust
             )
 print(preds)
 
@@ -64,9 +75,9 @@ zsic.available_models()
  'ViT-L/14']
 ```
 
-### You can use it over 50 languages
+### You can use it with over 50 languages
 ```python
-#View Supported models
+#View Supported lang codes
 zsic = ZeroShotImageClassification()
 zsic.available_languages()
 
@@ -126,5 +137,10 @@ zsic.available_languages()
  'zh-cn',
  'zh-tw'}
  ```
+### 💡 Important Tip
+
+* Hypothesis templates default to "A photo of {}" for en but "{}" for all other lang codes so its on you pass a nice template.
+* Template does make predictions better
+
 
 
