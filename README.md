@@ -1,7 +1,33 @@
 # Zero Shot Image Classification but more
 
+### Installation
+```python
+!pip install git+https://github.com/PrithivirajDamodaran/ZSIC.git
+```
 
 ### Usage
+
+##### English
+```python
+from ZSIC import ZeroShotImageClassification
+
+zsic = ZeroShotImageClassification()
+
+
+#Predictions
+preds = zsic(image="http://images.cocodataset.org/val2017/000000039769.jpg",
+            candidate_labels=["birds", "lions", "cats","dogs"], 
+            )
+print(preds)
+
+#Prints the following
+
+{'image': 'http://images.cocodataset.org/val2017/000000039769.jpg', 
+'scores': [0.00046659182, 0.0024660423, 0.9949238, 0.002143612], 
+'labels': ['birds', 'lions', 'cats', 'dogs']}
+```
+
+##### Spanish
 
 ```python
 from ZSIC import ZeroShotImageClassification
@@ -23,7 +49,7 @@ print(preds)
 ### You can use CNN or Transformer based pretrained models as vision backbone
 ```python
 #View Supported models
-zsic = ZeroShotImageClassification()
+zsic = ZeroShotImageClassification(model="RN50")
 zsic.available_models()
 
 #Prints the following
@@ -100,15 +126,5 @@ zsic.available_languages()
  'zh-cn',
  'zh-tw'}
  ```
-
-
-### You can use string templates to make the labels more intuitive
-```python
-zsc = ZeroShotImageClassification(model="ViT-B/16")
-preds = zsc(image="http://images.cocodataset.org/val2017/000000039769.jpg",candidate_labels=["tv", "cats and remotes", "cats on a pink cloth"], hypothesis_template="A image of {}")
-
-# prints the following
-# {'image': 'http://images.cocodataset.org/val2017/000000039769.jpg', 'scores': [2.67e-05, 1.0, 7.97e-05], 'labels': ['A image of tv', 'A image of cats and remotes', 'A image of cats on a pink cloth']}
-```
 
 
