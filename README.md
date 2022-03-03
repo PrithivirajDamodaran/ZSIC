@@ -140,7 +140,7 @@ zsic.available_languages()
  ```
 ### 💡 Important Tip
 
-* Hypothesis templates default to "A photo of {}" for en but "{}" for all other lang codes so its on you pass a nice template.
+* Hypothesis templates default to "A photo of {}" for en but its "{}" for all other lang codes so its on you to pass a nice template for the lang of your choice.
 * Template does make predictions better
 
 
