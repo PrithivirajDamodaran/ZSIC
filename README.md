@@ -1,4 +1,4 @@
-# Zero Shot Multilingual Image Classification and More
+# Zero Shot Image Classification but more
 
 
 ### Usage
