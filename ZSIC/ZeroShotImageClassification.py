@@ -101,7 +101,7 @@ class ZeroShotImageClassification():
 
   def __call__(
         self, 
-        image: Union[str, List[str]],
+        image: str,
         candidate_labels: Union[str, List[str]],
         *args,
         **kwargs,
@@ -175,10 +175,13 @@ class ZeroShotImageClassification():
             out.append(sim_score.item() * 100)
         probs = torch.tensor([out])
         probs = probs.softmax(dim=-1).cpu().numpy()
-        scores = probs.flatten()
-
+        scores = list(probs.flatten())
+        
+        sorted_sl = sorted(zip(scores, candidate_labels), key=lambda t:t[0], reverse=True)  
+        scores, candidate_labels = zip(*sorted_sl)
+        
         preds = {}
         preds["image"] = image
-        preds["scores"] = list(scores)
+        preds["scores"] = scores
         preds["labels"] = candidate_labels
         return preds
