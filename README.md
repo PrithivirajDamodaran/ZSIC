@@ -35,8 +35,8 @@ print(preds)
 #Prints the following
 
 {'image': 'http://images.cocodataset.org/val2017/000000039769.jpg', 
-'scores': [0.00046659182, 0.0024660423, 0.9949238, 0.002143612], 
-'labels': ['birds', 'lions', 'cats', 'dogs']}
+'scores': (0.9940692, 0.0028907193, 0.002512703, 0.0005273586), 
+'labels': ('cats', 'lions', 'dogs', 'birds')}
 ```
 
 ##### Spanish
@@ -55,8 +55,8 @@ print(preds)
 #Prints the following
 
 {'image': 'http://images.cocodataset.org/val2017/000000039769.jpg', 
-'scores': [0.5385471, 0.0016878153, 0.45578623, 0.003978893], 
-'labels': ['gatita', 'perras', 'gatas', 'leonas']}
+'scores': (0.5385471, 0.45578623, 0.003978893, 0.0016878153), 
+'labels': ('gatita', 'gatas', 'leonas', 'perras')}
 ```
 
 ### You can use CNN or Transformer based pretrained models as vision backbone
