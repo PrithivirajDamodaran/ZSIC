@@ -1,5 +1,6 @@
 # ZSIC - Zero Shot Image Classification but more
 
+* Intentionally super simple yet useful.
 * Lightweight / faster / $ conscious labelling needs ?
     * Supports CNN based models as vision backbone
 * Multilingual labelling needs?
